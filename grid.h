@@ -89,6 +89,19 @@ bool gameWon(Grid &grid);
 bool gameLost(Grid &grid);
 
 /**
+ * Return to buffer if game is win or lost
+ * @param grid[in] grid to get minesweeper
+ * @param cmd get cmd to execute
+ */
+void showResult(Grid &grid, unsigned cmd);
+
+/**
+ * Return string to play, read buffer
+ * @param grid[in] grid to get Problem
+ */
+void getActionToPlay(Grid &grid);
+
+/**
  * @brief delete all dynamic allocation
  * @param grid grid to delete dynamic allocation
  */
@@ -104,5 +117,10 @@ void createGrid();
  * @param cmd get cmd to execute
  */
 void getResult(unsigned cmd);
+
+/**
+ * @brief read grid and drop next action to do
+ */
+void readGrid();
 
 #endif //I_MINESWEEPER_GRID_H

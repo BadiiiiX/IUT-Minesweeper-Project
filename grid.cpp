@@ -150,8 +150,27 @@ bool gameLost(Grid &grid) {
 }
 
 void showResult(Grid &grid, unsigned cmd) {
-    if(cmd == 4) std::cout << "game " << (gameLost(grid) ? "lost" : "not lost");
+    if (cmd == 4) std::cout << "game " << (gameLost(grid) ? "lost" : "not lost");
     else std::cout << "game " << (gameWon(grid) ? "won" : "not won");
+}
+
+void getActionToPlay(Grid &grid) {
+    unsigned underscoreCount = grid.pb.columns * 3,
+            lineCount = (grid.pb.columns * 4) + 1;
+
+    for (unsigned x = 0; x < grid.pb.lines; x++) {
+        char useless, line[lineCount + 1];
+        for (unsigned _ = 0; _ < underscoreCount; _++) std::cin >> useless;
+        std::cin.read(line, sizeof(line));
+        //If we start with 2 and get all 4 values, it's ok !
+        for (unsigned c = 3; c < lineCount + 1; c += 4 /*c++ :p*/) {
+            unsigned getPos = grid.pb.columns * x + (c / 4);
+            if(line[c] == '.') {
+                std::cout << 'D' << getPos;
+                return;
+            }
+        }
+    }
 }
 
 void showGrid(Grid &grid) {
@@ -188,7 +207,7 @@ void deleteGrid(Grid &grid) {
 
 void createGrid() {
     Grid grid{};
-    setProblem(&grid.pb);
+    setProblem(grid.pb);
 
     setMines(grid);
 
@@ -207,7 +226,7 @@ void createGrid() {
 
 void getResult(unsigned cmd) {
     Grid grid{};
-    setProblem(&grid.pb);
+    setProblem(grid.pb);
 
     setMines(grid);
 
@@ -222,4 +241,11 @@ void getResult(unsigned cmd) {
     showResult(grid, cmd);
 
     deleteGrid(grid);
+}
+
+void readGrid() {
+    Grid grid{};
+    setBasicProblem(grid.pb);
+
+    getActionToPlay(grid);
 }

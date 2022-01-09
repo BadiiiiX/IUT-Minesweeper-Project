@@ -23,7 +23,13 @@ void getCoords(Problem &pb, unsigned pos, unsigned &x, unsigned &y);
  * @brief Setting up problem with lines, columns & mines
  * @param pb[out] problem to save
  */
-void setProblem(Problem *pb);
+void setProblem(Problem &pb);
+
+/**
+ * @brief Setting up problem with lines, columns
+ * @param pb[out] problem to save
+ */
+void setBasicProblem(Problem &pb);
 
 /**
  * @brief Generate mines randomly

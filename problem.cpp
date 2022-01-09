@@ -10,13 +10,20 @@ void getCoords(Problem &pb, unsigned pos, unsigned &x, unsigned &y) {
     y = pos % pb.columns;
 }
 
-void setProblem(Problem *pb) {
+void setProblem(Problem &pb) {
     unsigned lines, columns, mines;
     std::cin >> lines >> columns >> mines;
-    pb->lines = lines;
-    pb->columns = columns;
-    pb->mines = mines;
-    pb->minePos = new unsigned[pb->mines];
+    pb.lines = lines;
+    pb.columns = columns;
+    pb.mines = mines;
+    pb.minePos = new unsigned[pb.mines];
+}
+
+void setBasicProblem(Problem &pb) {
+    unsigned lines, columns, mines;
+    std::cin >> lines >> columns;
+    pb.lines = lines;
+    pb.columns = columns;
 }
 
 void generateMines(Problem &pb) {
@@ -43,7 +50,7 @@ void deleteProblem(Problem &pb) {
 
 void createProblem() {
     Problem pb{};
-    setProblem(&pb);
+    setProblem(pb);
 
     generateMines(pb);
 
