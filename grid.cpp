@@ -122,6 +122,11 @@ void executeMoves(Grid &grid) {
 
         if (action == 'M') {
             markMine(grid.ms[x][y]);
+            if(grid.ms[x][y].content == MINE) {
+                unsigned xm, ym;
+                getCoords(grid.pb, grid.pb.minePos[0], xm, ym);
+                unmaskMine(grid, xm, ym);
+            }
         }
     }
 }
