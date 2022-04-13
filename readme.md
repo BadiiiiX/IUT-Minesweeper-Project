@@ -5,7 +5,7 @@
 
 ## Description
 
-[FR] Cette application permet de créer et gérer en ligne de commande un démineur.
+[FR] Cette application permet de créer et gérer en ligne de commande un démineur.\
 [EN] This application allows you to create and manage a minesweeper from the command line.
 
 ## Utilisation
@@ -24,7 +24,7 @@ There are 4 commands numbered from 1 to 4, I let you discover them in the code.
 ## Informations
 [FR] Le code peut être utilisé et modifié à votre guise.\
 [EN] The code can be used and modified as you wish.
-.
+
 
 ### License
 
